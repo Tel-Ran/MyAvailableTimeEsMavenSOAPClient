@@ -1,8 +1,12 @@
 package com.mat.controller;
 
 import com.mat.interfaces.IExternalServices;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
+import org.springframework.remoting.caucho.HessianProxyFactoryBean;
 
 import java.io.*;
 
@@ -10,8 +14,24 @@ import java.io.*;
  * Created by Toshiba on 06.10.2015.
  */
 public class ExternalServicesAppl {
-    public static void main(String[] args) throws IOException {
-        AbstractApplicationContext ctx=new FileSystemXmlApplicationContext("beans.xml");
+    
+/*	@Bean
+	public HessianProxyFactoryBean iExternalServices() {
+	    HessianProxyFactoryBean factory = new HessianProxyFactoryBean();
+	    factory.setServiceUrl("http://localhost:8080/MyAvailableTimeEsMaven/external_services.service");
+	    factory.setServiceInterface(IExternalServices.class);
+	    return factory;
+	}*/
+	
+	/*@Autowired
+	private static IExternalServices exServ;	
+	*/
+	
+	public static void main(String[] args) throws IOException {
+    	
+    
+		
+    	AbstractApplicationContext ctx=new FileSystemXmlApplicationContext("beans.xml");
         IExternalServices exServ = (IExternalServices) ctx.getBean("iExternalServices");
         String test = exServ.testMethod();
         System.out.println(test);
