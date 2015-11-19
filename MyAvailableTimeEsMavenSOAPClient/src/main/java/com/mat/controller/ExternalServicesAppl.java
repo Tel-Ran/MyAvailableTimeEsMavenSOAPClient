@@ -1,14 +1,19 @@
 package com.mat.controller;
 
-import com.mat.interfaces.IExternalServices;
+import com.google.api.client.auth.oauth2.Credential;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.mongodb.Block;
+import com.mongodb.MongoClient;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.support.AbstractApplicationContext;
-import org.springframework.context.support.FileSystemXmlApplicationContext;
-import org.springframework.remoting.caucho.HessianProxyFactoryBean;
+import org.bson.Document;
 
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Toshiba on 06.10.2015.
@@ -24,17 +29,51 @@ public class ExternalServicesAppl {
 	}*/
 	
 	/*@Autowired
-	private static IExternalServices exServ;	
+	private static IExternalServic
+	es exServ;	
+	
 	*/
+	
+	private static Credential credential;
 	
 	public static void main(String[] args) throws IOException {
     	
     
 		
-    	AbstractApplicationContext ctx=new FileSystemXmlApplicationContext("beans.xml");
-        IExternalServices exServ = (IExternalServices) ctx.getBean("iExternalServices");
-        String test = exServ.testMethod();
-        System.out.println(test);
+    	//AbstractApplicationContext ctx=new FileSystemXmlApplicationContext("beans.xml");
+        //IExternalServices exServ = (IExternalServices) ctx.getBean("iExternalServices");
+        //String test = exServ.testMethod();
+        //System.out.println(test);
+        
+        MongoClient mongoClient = new MongoClient(); // Connect with default settings i.e. localhost:27017
+	     MongoDatabase db = mongoClient.getDatabase("test"); 
+	     private Gson gson = new GsonBuilder().
+	    	        setExclusionStrategies(new ParseExclusion()).
+	    	        create();
+	    MongoCollection<Document> collection = db.getCollection("Credentials");
+	    
+	    List<Document> documents = (List<Document>) collection.find().into(
+				new ArrayList<Document>());
+	    
+	    for(Document document : documents){
+            System.out.println(document);
+            credential = gson.fromJson(document.toJson(), Credential.class);
+        }
+	    
+	   /* for (Document document : db.getCollection("Credentials").find()) {
+	    	 // 
+	    	  System.out.println(credential);*/
+
+	    //}
+	    
+		
+		// Credential foo = mongoTemplate.getConverter().read(Foo.class, obj);  
+		
+		
+		
+        
+        
+        
         /*BufferedReader console = new BufferedReader(new InputStreamReader(System.in));
         float result = 0;
         while(true){

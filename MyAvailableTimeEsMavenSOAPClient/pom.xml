@@ -63,12 +63,104 @@
 
 
 <!-- Google Credential class support -->
-<dependency>
+<!-- <dependency>
 	<groupId>com.google.oauth-client</groupId>
 	<artifactId>google-oauth-client</artifactId>
 	<version>1.20.0</version>
-</dependency>
+</dependency> -->
     
+   <dependency>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client</artifactId>
+			<version>1.13.1-beta</version>
+		</dependency>
+		<!-- <dependency>
+			<groupId>com.google.http-client</groupId>
+			<artifactId>google-http-client-jackson</artifactId>
+			<version>1.13.1-beta</version>
+		</dependency>
+		 -->
+		
+		<dependency>
+	<groupId>com.google.api.client</groupId>
+	<artifactId>google-api-client-json</artifactId>
+	<version>1.2.3-alpha</version>
+</dependency>
+
+<dependency>
+	<groupId>com.google.api.client</groupId>
+	<artifactId>google-api-client</artifactId>
+	<version>1.4.1-beta</version>
+</dependency>
+
+
+<!-- MongoDB -->		
+	
+<!-- MongoDB -->		
+<dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver</artifactId>
+        <version>3.0.4</version>
+    </dependency>
+    
+    <dependency>
+	<groupId>org.mongodb</groupId>
+	<artifactId>mongo-java-driver</artifactId>
+	<version>3.1.1</version>
+</dependency>
+
+    
+     <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver-async</artifactId>
+        <version>3.0.4</version>
+    </dependency>
+      <dependency>
+        <groupId>org.mongodb</groupId>
+        <artifactId>mongodb-driver-core</artifactId>
+        <version>3.0.4</version>
+    </dependency>
+    
+    <dependency>
+	<groupId>com.google.code.gson</groupId>
+	<artifactId>gson</artifactId>
+	<version>2.4</version>
+</dependency>
+
+
+		
+		
+		<dependency>
+	<groupId>com.google.http-client</groupId>
+	<artifactId>google-http-client-jackson</artifactId>
+	<version>1.20.0</version>
+</dependency>
+<dependency>
+	<groupId>com.google.http-client</groupId>
+	<artifactId>google-http-client-jackson2</artifactId>
+	<version>1.20.0</version>
+</dependency>
+		
+	<dependency>
+	<groupId>com.google.api.client</groupId>
+	<artifactId>google-api-client-auth-oauth2</artifactId>
+	<version>1.2.3-alpha</version>
+</dependency>
+		
+		
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-web-api</artifactId>
+			<version>6.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+	<groupId>com.google.apis</groupId>
+	<artifactId>google-api-services-oauth2</artifactId>
+	<version>v2-rev32-1.13.2-beta</version>
+</dependency>
+
+	
   </dependencies>
   
   <build>
