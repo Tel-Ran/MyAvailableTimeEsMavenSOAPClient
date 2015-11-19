@@ -17,8 +17,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.google.api.client.auth.oauth2.Credential;
+import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.gson.Gson;
 import com.mat.interfaces.IExternalServices;
+import com.mat.json.Constants;
 import com.mat.json.Scheduler;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
@@ -51,20 +53,17 @@ public class SOAPClientTest {
 	@Autowired
 	private IExternalServices exServ;
 	
-	private static Credential credential;
+	private static GoogleCredential credential;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		MongoClient mongoClient = new MongoClient(); // Connect with default settings i.e. localhost:27017
-	    @SuppressWarnings("deprecation")
-		DB db = mongoClient.getDB("test");
-	    DBCollection coll = db.getCollection("Credentials");
-	    BasicDBObject searchQuery = new BasicDBObject();
-		searchQuery.put("_id", "564b9f95ca9ebf0bf862e009");
-		Document doc = (Document) coll.findOne(searchQuery);
-	    Gson gson = new Gson();
-		credential = gson.fromJson(doc.toJson(), Credential.class);
 		
+		GoogleCredential credential = new GoogleCredential.Builder().setJsonFactory(Constants.JSON_FACTORY)
+			     .setTransport(Constants.HTTP_TRANSPORT).setClientSecrets(Constants.CLIENT_ID, Constants.CLIENT_SECRET).build();
+			credential.setAccessToken(Constants.ACCESS_TOKEN);
+			credential.setRefreshToken(Constants.REFRESH_TOKEN);
+			System.out.println(credential);
+			
 	}
 /*
 	@AfterClass

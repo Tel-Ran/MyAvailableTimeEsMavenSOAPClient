@@ -1,8 +1,10 @@
 package com.mat.controller;
 
 import com.google.api.client.auth.oauth2.Credential;
+import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.mat.json.Constants;
 import com.mongodb.Block;
 import com.mongodb.MongoClient;
 import com.mongodb.client.FindIterable;
@@ -45,22 +47,8 @@ public class ExternalServicesAppl {
         //String test = exServ.testMethod();
         //System.out.println(test);
         
-        MongoClient mongoClient = new MongoClient(); // Connect with default settings i.e. localhost:27017
-	     MongoDatabase db = mongoClient.getDatabase("test"); 
-	     private Gson gson = new GsonBuilder().
-	    	        setExclusionStrategies(new ParseExclusion()).
-	    	        create();
-	    MongoCollection<Document> collection = db.getCollection("Credentials");
-	    
-	    List<Document> documents = (List<Document>) collection.find().into(
-				new ArrayList<Document>());
-	    
-	    for(Document document : documents){
-            System.out.println(document);
-            credential = gson.fromJson(document.toJson(), Credential.class);
-        }
-	    
-	   /* for (Document document : db.getCollection("Credentials").find()) {
+		
+			   /* for (Document document : db.getCollection("Credentials").find()) {
 	    	 // 
 	    	  System.out.println(credential);*/
 
