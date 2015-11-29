@@ -94,9 +94,9 @@
 </dependency>
 
 
-<!-- MongoDB -->		
+<!-- <!-- MongoDB -->		
 	
-<!-- MongoDB -->		
+MongoDB		
 <dependency>
         <groupId>org.mongodb</groupId>
         <artifactId>mongodb-driver</artifactId>
@@ -127,7 +127,7 @@
 	<version>2.4</version>
 </dependency>
 
-
+ -->
 		
 		
 		<dependency>

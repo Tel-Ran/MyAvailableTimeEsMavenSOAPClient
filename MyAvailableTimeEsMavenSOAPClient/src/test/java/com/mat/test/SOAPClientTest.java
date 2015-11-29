@@ -84,14 +84,15 @@ public class SOAPClientTest {
 	}
 	
 	
-	@Test
-	public void tesSetCredentials() {
+/*	public void tesSetCredentials() {
+		@Test
 		Scheduler scheduler = new Scheduler();
 		scheduler.setAccountName(ACCOUNT_NAME);
 		scheduler.setShedulerName(SCHEDULER_NAME);
 		exServ.setCredential(USER_ID, scheduler, credential);
+		
 	//	void setCredential(int userId, Scheduler scheduler, Credential credential);
 			}
 
-
+*/
 }
